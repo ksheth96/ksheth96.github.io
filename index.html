@@ -1,112 +1,148 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat&display=swap'>
-  <link rel='stylesheet' href='main.css'>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="main.css" />
   <title>Kshiteej Sheth</title>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #fff;
+      color: #333;
+      line-height: 1.6;
+    }
+    .wrapper {
+      max-width: 800px;
+      margin: auto;
+    }
+    .title {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .photo img {
+      width: 150px;
+      border-radius: 8px;
+    }
+    .section {
+      margin-top: 30px;
+    }
+    .publicons span {
+      float: right;
+    }
+    .icon {
+      height: 24px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+    h1 {
+      font-size: 1.5em;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+      margin-top: 40px;
+    }
+    p {
+      margin: 15px 0;
+    }
+    ul {
+      margin: 10px 0 20px 20px;
+    }
+    li {
+      margin: 5px 0;
+    }
+    .clear {
+      clear: both;
+    }
+  </style>
 </head>
 <body>
-<div class='wrapper'>
+  <div class="wrapper">
+    <header>
+      <div class="title">Kshiteej Sheth</div>
+      <div class="photo"><img src="personal_picture_2.jpg" alt="Kshiteej Sheth"></div>
+    </header>
 
-  <div class='title'>Kshiteej Sheth</div>
+    <section>
+      <p>I am a fourth year CS PhD student at <a href="http://epfl.ch/">EPFL</a> working with Prof. <a href="https://theory.epfl.ch/kapralov/">Michael Kapralov</a>. I am broadly interested in algorithms for massive datasets, with a focus on randomized numerical linear algebra, high-dimensional data analysis and optimization. Recently, I have been working on optimizing memory and runtime complexity of LLM inference and training. I spent the fall of 2024 as an Applied Science intern at Amazon Luxembourg.</p>
+      <p>Previously, I worked with Prof. <a href="https://theory.epfl.ch/osven/">Ola Svensson</a> during my MSc on clustering problems. Before that I worked with Prof. <a href="https://sites.google.com/site/anirbandasgupta">Anirban Dasgupta</a> and Prof. <a href="https://researcher.watson.ibm.com/researcher/view.php?person=in-garg.dinesh">Dinesh Garg</a> (IBM Research, Bengaluru) on randomized linear algebra. I also spent a summer at Caltech on a <a href="https://sfp.caltech.edu/documents/4439/abstracts_a-z_jan_2018_update_-_with_cover_for_web_site.pdf">SURF fellowship</a> working with Dr. <a href="https://www.astro.caltech.edu/~aam/">Ashish Mahabal</a> on deep learning for astronomy.</p>
+      <p>You can reach me at firstname dot lastname at epfl dot ch.</p>
+    </section>
 
-  <div class='photo'><img src='personal_picture_2.jpg'></div>
-<p>
-I am a fourth year CS PhD student at <a href="http://epfl.ch/">EPFL
-  </a> working with Prof. <a href="https://theory.epfl.ch/kapralov/">Michael Kapralov</a>. I am broadly interested in algorithms for massive datasets, with a focus on randomized numerical linear algebra, high-dimensional data analysis and optimization. Recently, I have been working on optimizing memory and runtime complexity of LLM inference and training. I spent the fall of 2024 as an Applied Science intern at Amazon Luxembourg.
-	</p>
-	<p>
-Previously, I worked with Prof. <a href="https://theory.epfl.ch/osven/"> Ola Svensson</a> during my MSc on clustering problems.
-Before that I worked with Prof. <a href="https://sites.google.com/site/anirbandasgupta"> Anirban Dasgupta</a> and Prof. <a href="https://researcher.watson.ibm.com/researcher/view.php?person=in-garg.dinesh">Dinesh Garg </a> (IBM Research, Bengaluru) on randomized linear algebra.
-I also spent a summer at Caltech on a <a href="https://sfp.caltech.edu/documents/4439/abstracts_a-z_jan_2018_update_-_with_cover_for_web_site.pdf"> SURF fellowship</a> working with Dr.<a href="https://www.astro.caltech.edu/~aam/"> Ashish Mahabal </a> on deep learning for astronomy. 
-</p>
-<p>
-You can reach me at firstname dot lastname at epfl dot ch.
-	</p>
-  <div class='clear'></div>
-  
-  <h1 class='publicons'>Publications
-    <span>
-      <a href='https://scholar.google.com/citations?user=LpgWaeUAAAAJ&hl=en'><img src='google-scholar-square.svg' class='icon'></a>
-      <a href='https://dblp.uni-trier.de/pid/190/7383.html'><img src='dblp-square.svg' class='icon'></a>
-    </span>
-  </h1>
-	<p>
-	  <i><b>BalanceKV: KV Cache Compression through Discrepancy Theory</b></i>. <br>
-		Insu Han, Michael Kapralov, Ekaterina Kochetkova, <b>KS</b>, Amir Zandieh. <br>
-	<a href='https://arxiv.org/abs/2502.07861'>[arxiv]</a>.
-	</p>
-	<p>
-	  <i><b>Improved Algorithms for Kernel Matrix-Vector Multiplication</b></i>.<br>    
-Piotr Indyk, Michael Kapralov, <b>KS</b>, Tal Wagner.<br>
-	<a href='https://longcontextfm.github.io/'><b>ICLR 2025</b></a>.<br>
-	<em>"We design fast algorithms for processing attention matrices in long-context LLMs"</em>.<br>
-	  <b> Best Paper</b> at <a href='https://longcontextfm.github.io/'><b>ICML 2024</b></a> workshop on Long Context Foundation Models.<br>
-	<a href="https://openreview.net/forum?id=7CCzyEtZXH">[openreview]</a>
-	  
-  </p>
-	<p>
-	  <i><b>Sublinear Time Low-Rank Approximation of Toeplitz Matrices</b></i>.<br>    
-<a href="https://people.cs.umass.edu/~cmusco/">Cameron Musco</a> and <b>KS</b>.<br>
-	  <a href='https://www.siam.org/conferences/cm/conference/soda23'><b>SODA 2024</b></a>.<br>
-	<a href="http://arxiv.org/abs/2404.13757">[arxiv]</a>.
-	  
-  </p>
-  <p>
-	  <i><b>Toeplitz Low-Rank Approximation with Sublinear Query Complexity</b></i>.<br>    
-<a href="https://theory.epfl.ch/kapralov/">Michael Kapralov</a>, <a href="https://hannahlawrence.github.io/">Hannah Lawrence</a>, <a href="https://scholar.google.com/citations?user=ZDJ4JiAAAAAJ&hl=en&oi=ao">Mikhail Makarov</a>, <a href="https://people.cs.umass.edu/~cmusco/">Cameron Musco</a> and <b>KS</b>.<br>
-	  <a href='https://www.siam.org/conferences/cm/conference/soda23'><b>SODA 2023</b></a>.<br>
-	  <a href="https://arxiv.org/abs/2211.11328">[arxiv]</a>.
-  </p>
-  <p>
-	  <i><b>Towards Non-Uniform k-Center with Constant types of Radii</b></i>.<br>
-    <a href="https://xinruij.github.io/">Xinrui Jia</a>, <a href="https://larsrohwedder.com/">Lars Rohwedder</a>, <b>KS</b> and <a href="https://theory.epfl.ch/osven/"> Ola Svensson</a>.<br>
-    <a href='https://www.siam.org/conferences/cm/conference/sosa22'><b>SOSA 2022</b></a>.<br>
-    <a href="https://arxiv.org/abs/2110.02688">[arxiv]</a>.
-  </p>
-<p>
-	<i><b>Fair Colorful k-Center Clustering</i></b>.<br>
-	<a href="https://xinruij.github.io/">Xinrui Jia</a>, <b>KS</b> and <a href="https://theory.epfl.ch/osven/"> Ola Svensson</a>.<br>
-	<a href='https://link.springer.com/article/10.1007/s10107-021-01674-7'><b>Math. Programming 2021</b></a>.<br>
-	Preliminary version in <a href='https://www.lse.ac.uk/ipco-2020'><b>IPCO 2020</b></a>.<br>
-    <a href="https://arxiv.org/abs/2007.04059">[arxiv]</a><a href="https://www.youtube.com/watch?v=E7CUukJE_9o&t=473s">[talk]</a>.
-  </p>
-<p>
-	<i><b>Improved linear embeddings via Lagrange duality</i></b>.<br>
-	<b>KS</b>, Dinesh Garg and Anirban Dasgupta.<br>
-	<a href='https://www.springer.com/journal/10994'><b>Machine Learning, 2019</b></a>.<br>
-    <a href="https://link.springer.com/article/10.1007/s10994-018-5729-x">[paper]</a>.
-  </p>
-<p>
-	<i><b>Deep-learnt classification of light curves</i></b>.<br>
-	Ashish Mahabal, <b>KS</b>, Fabian Gieseke, Akshay Pai, S George Djorgovski, Andrew J Drake and Matthew J Graham.<br>
-	<b>IEEE SSCI 2017</b>.<br>
-    <a href="https://arxiv.org/abs/1709.06257">[arxiv]</a>.
-  </p>
-	
-  
-  <h1>Teaching</h1>
-  <ul>
-    <li>EPFL:
+    <section class="section">
+      <h1 class="publicons">
+        Publications
+        <span>
+          <a href="https://scholar.google.com/citations?user=LpgWaeUAAAAJ&hl=en"><img src="google-scholar-square.svg" class="icon" alt="Google Scholar"></a>
+          <a href="https://dblp.uni-trier.de/pid/190/7383.html"><img src="dblp-square.svg" class="icon" alt="DBLP"></a>
+        </span>
+      </h1>
+
+      <p><b><i>BalanceKV: KV Cache Compression through Discrepancy Theory</i></b><br>
+      Insu Han, Michael Kapralov, Ekaterina Kochetkova, <b>KS</b>, Amir Zandieh.<br>
+      <a href="https://arxiv.org/abs/2502.07861">[arxiv]</a></p>
+
+      <p><b><i>Improved Algorithms for Kernel Matrix-Vector Multiplication</i></b><br>
+      Piotr Indyk, Michael Kapralov, <b>KS</b>, Tal Wagner.<br>
+      <a href="https://longcontextfm.github.io/"><b>ICLR 2025</b></a><br>
+      <em>"We design fast algorithms for processing attention matrices in long-context LLMs"</em><br>
+      <b>Best Paper</b> at <a href="https://longcontextfm.github.io/"><b>ICML 2024</b></a> workshop on Long Context Foundation Models.<br>
+      <a href="https://openreview.net/forum?id=7CCzyEtZXH">[openreview]</a></p>
+
+      <p><b><i>Sublinear Time Low-Rank Approximation of Toeplitz Matrices</i></b><br>
+      <a href="https://people.cs.umass.edu/~cmusco/">Cameron Musco</a> and <b>KS</b>.<br>
+      <a href="https://www.siam.org/conferences/cm/conference/soda23"><b>SODA 2024</b></a><br>
+      <a href="http://arxiv.org/abs/2404.13757">[arxiv]</a></p>
+
+      <p><b><i>Toeplitz Low-Rank Approximation with Sublinear Query Complexity</i></b><br>
+      Michael Kapralov, <a href="https://hannahlawrence.github.io/">Hannah Lawrence</a>, <a href="https://scholar.google.com/citations?user=ZDJ4JiAAAAAJ&hl=en&oi=ao">Mikhail Makarov</a>, <a href="https://people.cs.umass.edu/~cmusco/">Cameron Musco</a>, and <b>KS</b>.<br>
+      <a href="https://www.siam.org/conferences/cm/conference/soda23"><b>SODA 2023</b></a><br>
+      <a href="https://arxiv.org/abs/2211.11328">[arxiv]</a></p>
+
+      <p><b><i>Towards Non-Uniform k-Center with Constant types of Radii</i></b><br>
+      <a href="https://xinruij.github.io/">Xinrui Jia</a>, <a href="https://larsrohwedder.com/">Lars Rohwedder</a>, <b>KS</b>, <a href="https://theory.epfl.ch/osven/">Ola Svensson</a>.<br>
+      <a href="https://www.siam.org/conferences/cm/conference/sosa22"><b>SOSA 2022</b></a><br>
+      <a href="https://arxiv.org/abs/2110.02688">[arxiv]</a></p>
+
+      <p><b><i>Fair Colorful k-Center Clustering</i></b><br>
+      <a href="https://xinruij.github.io/">Xinrui Jia</a>, <b>KS</b>, <a href="https://theory.epfl.ch/osven/">Ola Svensson</a>.<br>
+      <a href="https://link.springer.com/article/10.1007/s10107-021-01674-7"><b>Math. Programming 2021</b></a><br>
+      Preliminary version in <a href="https://www.lse.ac.uk/ipco-2020"><b>IPCO 2020</b></a><br>
+      <a href="https://arxiv.org/abs/2007.04059">[arxiv]</a> <a href="https://www.youtube.com/watch?v=E7CUukJE_9o&t=473s">[talk]</a></p>
+
+      <p><b><i>Improved linear embeddings via Lagrange duality</i></b><br>
+      <b>KS</b>, Dinesh Garg, Anirban Dasgupta.<br>
+      <a href="https://www.springer.com/journal/10994"><b>Machine Learning, 2019</b></a><br>
+      <a href="https://link.springer.com/article/10.1007/s10994-018-5729-x">[paper]</a></p>
+
+      <p><b><i>Deep-learnt classification of light curves</i></b><br>
+      Ashish Mahabal, <b>KS</b>, Fabian Gieseke, Akshay Pai, S George Djorgovski, Andrew J Drake, Matthew J Graham.<br>
+      <b>IEEE SSCI 2017</b><br>
+      <a href="https://arxiv.org/abs/1709.06257">[arxiv]</a></p>
+    </section>
+
+    <section class="section">
+      <h1>Teaching</h1>
       <ul>
-        <li><b>CS-450 Advanced algorithms</b></li>
-        <li><b>CS-250 Algorithms</b></li>
+        <li>EPFL:
+          <ul>
+            <li><b>CS-450 Advanced Algorithms</b></li>
+            <li><b>CS-250 Algorithms</b></li>
+          </ul>
+        </li>
       </ul>
-    </li>
-  </ul>
-<h1>Service</h1>
-  <ul>
-    <li>Conference review: Reviewer for SODA 2022, STOC 2022, SOSA 2023.</li> 
-      <li>Journal review: Theoretical Computer Science.
-    </li>
-  </ul>
+    </section>
 
-  
-</div>
+    <section class="section">
+      <h1>Service</h1>
+      <ul>
+        <li>Conference review: Reviewer for SODA 2022, STOC 2022, SOSA 2023.</li>
+        <li>Journal review: Theoretical Computer Science.</li>
+      </ul>
+    </section>
+  </div>
 </body>
 </html>
-
-
-
