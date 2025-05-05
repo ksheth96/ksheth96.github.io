@@ -19,17 +19,35 @@
       max-width: 800px;
       margin: auto;
     }
-    .title {
-      font-size: 2em;
-      font-weight: bold;
-      margin-bottom: 10px;
+    .intro-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
     }
     .photo img {
       width: 150px;
       border-radius: 8px;
     }
-    .section {
-      margin-top: 30px;
+    .intro-text {
+      margin-left: 20px;
+    }
+    .intro-text .name {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .intro-text .email {
+      font-size: 1em;
+      color: #555;
+    }
+    section {
+      margin-top: 20px;
+    }
+    h1 {
+      font-size: 1.5em;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+      margin-top: 40px;
     }
     .publicons span {
       float: right;
@@ -38,12 +56,6 @@
       height: 24px;
       margin-left: 10px;
       vertical-align: middle;
-    }
-    h1 {
-      font-size: 1.5em;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 5px;
-      margin-top: 40px;
     }
     p {
       margin: 15px 0;
@@ -61,15 +73,36 @@
 </head>
 <body>
   <div class="wrapper">
-    <header>
-      <div class="title">Kshiteej Sheth</div>
-      <div class="photo"><img src="personal_picture_2.jpg" alt="Kshiteej Sheth"></div>
-    </header>
 
+    <!-- Image + Name + Email in one row -->
+    <div class="intro-container">
+      <div class="photo"><img src="personal_picture_2.jpg" alt="Kshiteej Sheth"></div>
+      <div class="intro-text">
+        <div class="name">Kshiteej Sheth</div>
+        <div class="email">firstname dot lastname at epfl dot ch</div>
+      </div>
+    </div>
+
+    <!-- Bio appears BELOW the image/text row -->
     <section>
-      <p>I am a fourth year CS PhD student at <a href="http://epfl.ch/">EPFL</a> working with Prof. <a href="https://theory.epfl.ch/kapralov/">Michael Kapralov</a>. I am broadly interested in algorithms for massive datasets, with a focus on randomized numerical linear algebra, high-dimensional data analysis and optimization. Recently, I have been working on optimizing memory and runtime complexity of LLM inference and training. I spent the fall of 2024 as an Applied Science intern at Amazon Luxembourg.</p>
-      <p>Previously, I worked with Prof. <a href="https://theory.epfl.ch/osven/">Ola Svensson</a> during my MSc on clustering problems. Before that I worked with Prof. <a href="https://sites.google.com/site/anirbandasgupta">Anirban Dasgupta</a> and Prof. <a href="https://researcher.watson.ibm.com/researcher/view.php?person=in-garg.dinesh">Dinesh Garg</a> (IBM Research, Bengaluru) on randomized linear algebra. I also spent a summer at Caltech on a <a href="https://sfp.caltech.edu/documents/4439/abstracts_a-z_jan_2018_update_-_with_cover_for_web_site.pdf">SURF fellowship</a> working with Dr. <a href="https://www.astro.caltech.edu/~aam/">Ashish Mahabal</a> on deep learning for astronomy.</p>
-      <p>You can reach me at firstname dot lastname at epfl dot ch.</p>
+      <p>
+        I am a fourth year CS PhD student at <a href="http://epfl.ch/">EPFL</a> working with Prof.
+        <a href="https://theory.epfl.ch/kapralov/">Michael Kapralov</a>. I am broadly interested in algorithms for
+        massive datasets, with a focus on randomized numerical linear algebra, high-dimensional data analysis and
+        optimization. Recently, I have been working on optimizing memory and runtime complexity of LLM inference and
+        training. I spent the fall of 2024 as an Applied Science intern at Amazon Luxembourg.
+      </p>
+      <p>
+        Previously, I worked with Prof. <a href="https://theory.epfl.ch/osven/">Ola Svensson</a> during my MSc on
+        clustering problems. Before that I worked with Prof.
+        <a href="https://sites.google.com/site/anirbandasgupta">Anirban Dasgupta</a> and Prof.
+        <a href="https://researcher.watson.ibm.com/researcher/view.php?person=in-garg.dinesh">Dinesh Garg</a> (IBM
+        Research, Bengaluru) on randomized linear algebra. I also spent a summer at Caltech on a
+        <a
+          href="https://sfp.caltech.edu/documents/4439/abstracts_a-z_jan_2018_update_-_with_cover_for_web_site.pdf">SURF
+          fellowship</a> working with Dr. <a href="https://www.astro.caltech.edu/~aam/">Ashish Mahabal</a> on deep
+        learning for astronomy.
+      </p>
     </section>
 
 
