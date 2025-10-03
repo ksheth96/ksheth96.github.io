@@ -2,187 +2,339 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="main.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
   <title>Kshiteej Sheth</title>
   <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      padding: 20px;
-      background: #fff;
-      color: #333;
-      line-height: 1.6;
+    :root{
+      --bg:#0b0d10;
+      --panel:#12161b;
+      --panel-2:#151a21;
+      --text:#e9edf3;
+      --muted:#a9b3c1;
+      --accent:#53b6ff;
+      --accent-2:#8ef0c6;
+      --border:#1f2731;
+      --chip:#1a212b;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
     }
-    .wrapper {
-      max-width: 800px;
-      margin: auto;
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#ffffff;
+        --panel:#f7f9fb;
+        --panel-2:#ffffff;
+        --text:#213043;
+        --muted:#5b6b80;
+        --accent:#1565ff;
+        --accent-2:#06c38f;
+        --border:#e6ecf2;
+        --chip:#eef3f8;
+        --shadow:0 8px 26px rgba(16,24,40,.08);
+      }
     }
-    .intro-container {
-      display: flex;
-      align-items: center;
-      margin-bottom: 30px;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+      color:var(--text);
+      background:linear-gradient(180deg,var(--bg) 0%, var(--panel) 100%);
+      line-height:1.65;
     }
-    .photo img {
-      width: 150px;
-      border-radius: 8px;
+
+    .wrap{
+      max-width:1024px;
+      margin:0 auto;
+      padding:28px 20px 64px;
     }
-    .intro-text {
-      margin-left: 20px;
+
+    /* Header */
+    .hero{
+      display:grid;
+      grid-template-columns:110px 1fr auto;
+      gap:18px;
+      align-items:center;
+      background:var(--panel-2);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:var(--shadow);
     }
-    .intro-text .name {
-      font-size: 1.8em;
-      font-weight: bold;
-      margin-bottom: 10px;
+    .avatar{
+      width:110px;height:110px;border-radius:14px;object-fit:cover;
+      border:1px solid var(--border);
     }
-    .intro-text .email {
-      font-size: 1em;
-      color: #555;
+    .title h1{
+      font-size:1.9rem;margin:0 0 6px 0;letter-spacing:.2px;
     }
-    section {
-      margin-top: 20px;
+    .title .email{
+      color:var(--muted);font-size:.98rem;
     }
-    h1 {
-      font-size: 1.5em;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 5px;
-      margin-top: 40px;
+    .links a{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:42px;height:42px;border-radius:12px;
+      border:1px solid var(--border);background:var(--chip);
+      margin-left:8px;text-decoration:none;
+      transition:transform .15s ease, border-color .2s ease;
     }
-    .publicons span {
-      float: right;
+    .links a:hover{transform:translateY(-2px);border-color:var(--accent)}
+    .links img{height:22px;width:22px}
+
+    /* Bio */
+    .card{
+      margin-top:16px;
+      background:var(--panel-2);border:1px solid var(--border);
+      border-radius:18px;padding:18px 18px 8px;box-shadow:var(--shadow);
     }
-    .icon {
-      height: 24px;
-      margin-left: 10px;
-      vertical-align: middle;
+    .card p{margin:0 0 12px 0;color:var(--text)}
+    .card a{color:var(--accent);text-decoration:none}
+    .card a:hover{text-decoration:underline}
+
+    /* Section headings */
+    .section{
+      margin-top:34px;
     }
-    p {
-      margin: 15px 0;
+    .section h2{
+      display:flex;align-items:center;justify-content:space-between;
+      margin:0 0 14px 0;font-size:1.3rem;letter-spacing:.2px;
     }
-    ul {
-      margin: 10px 0 20px 20px;
+    .section h2 .tag{
+      font-size:.8rem;font-weight:700;color:var(--accent);
+      background:linear-gradient(90deg,var(--chip),transparent);
+      padding:6px 10px;border-radius:999px;border:1px solid var(--border);
     }
-    li {
-      margin: 5px 0;
+
+    /* Publication cards */
+    .pub-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
     }
-    .clear {
-      clear: both;
+    @media(min-width:760px){
+      .pub-grid{grid-template-columns:1fr 1fr}
+    }
+    .pub{
+      background:var(--panel-2);border:1px solid var(--border);
+      border-radius:16px;padding:14px 14px 12px;position:relative;
+      transition:transform .12s ease,border-color .2s ease, box-shadow .2s ease;
+    }
+    .pub:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:var(--shadow)}
+    .pub-title{margin:0 0 6px 0;font-weight:700}
+    .pub-authors{margin:0 0 8px 0;color:var(--muted);font-size:.95rem}
+    .chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 10px}
+    .chip{
+      font-size:.75rem;font-weight:700;color:var(--text);
+      background:var(--chip);border:1px solid var(--border);
+      padding:4px 8px;border-radius:999px;
+    }
+    .chip.venue{color:#fff;background:linear-gradient(90deg,var(--accent),#7a9cff)}
+    .chip.year{background:linear-gradient(90deg,var(--accent-2),#6ee7b7);color:#0b2b1f}
+    .links-row a{
+      display:inline-block;margin-right:10px;font-weight:700;font-size:.92rem;
+      color:var(--accent);text-decoration:none;border-bottom:1px dashed transparent;
+    }
+    .links-row a:hover{border-color:var(--accent)}
+    .note{color:var(--muted);font-size:.92rem;margin-top:4px}
+
+    /* Teaching & Service lists */
+    ul{padding-left:18px;margin:6px 0 14px}
+    li{margin:4px 0}
+
+    /* little toggle */
+    .toolbar{
+      display:flex;align-items:center;gap:10px;margin-top:10px
+    }
+    .btn{
+      cursor:pointer;border:1px solid var(--border);background:var(--chip);color:var(--text);
+      padding:6px 10px;border-radius:10px;font-weight:700;font-size:.85rem
     }
   </style>
 </head>
 <body>
-  <div class="wrapper">
+  <div class="wrap">
 
-    <!-- Image + Name + Email in one row -->
-    <div class="intro-container">
-      <div class="photo"><img src="personal_picture_2.jpg" alt="Kshiteej Sheth"></div>
-      <div class="intro-text">
-        <div class="name">Kshiteej Sheth</div>
-        <div class="email">email: kshiteejsheth96 (at) gmail (dot) com</div>
+    <header class="hero">
+      <img class="avatar" src="personal_picture_2.jpg" alt="Kshiteej Sheth" />
+      <div class="title">
+        <h1>Kshiteej Sheth</h1>
+        <div class="email">kshiteejsheth96 (at) gmail (dot) com</div>
+        <div class="toolbar">
+          <button class="btn" id="toggleTheme">Toggle theme</button>
+        </div>
       </div>
-    </div>
+      <div class="links">
+        <a href="https://scholar.google.com/citations?user=LpgWaeUAAAAJ&hl=en" title="Google Scholar">
+          <img src="google-scholar-square.svg" alt="Google Scholar">
+        </a>
+        <a href="https://dblp.uni-trier.de/pid/190/7383.html" title="DBLP">
+          <img src="dblp-square.svg" alt="DBLP">
+        </a>
+      </div>
+    </header>
 
-    <!-- Bio appears BELOW the image/text row -->
-    <section>
+    <section class="card">
       <p>
-        I am a fourth year CS PhD student at <a href="http://epfl.ch/">EPFL</a> working with Prof.
+        I am a fourth year CS PhD student at <a href="http://epfl.ch/">EPFL</a> working with
         <a href="https://theory.epfl.ch/kapralov/">Michael Kapralov</a>. I am broadly interested in algorithms for
-        massive datasets, with a focus on randomized numerical linear algebra, high-dimensional data analysis and
-        optimization. Recently, I have been working on optimizing memory and runtime complexity of LLM inference and
-        training. I spent the fall of 2024 as an Applied Science intern at Amazon Luxembourg.
+        massive datasets—randomized numerical linear algebra, high-dimensional data analysis, and optimization.
+        Recently, I’ve been working on optimizing the memory/runtime of LLM inference and training.
+        I spent Fall 2024 as an Applied Science intern at Amazon Luxembourg.
       </p>
       <p>
-        Previously, I worked with Prof. <a href="https://theory.epfl.ch/osven/">Ola Svensson</a> during my MSc on
-        clustering problems. Before that I worked with Prof.
-        <a href="https://sites.google.com/site/anirbandasgupta">Anirban Dasgupta</a> and Prof.
-        <a href="https://researcher.watson.ibm.com/researcher/view.php?person=in-garg.dinesh">Dinesh Garg</a> (IBM
-        Research, Bengaluru) on randomized linear algebra. I also spent a summer at Caltech on a
-        <a
-          href="https://sfp.caltech.edu/documents/4439/abstracts_a-z_jan_2018_update_-_with_cover_for_web_site.pdf">SURF
-          fellowship</a> working with Dr. <a href="https://www.astro.caltech.edu/~aam/">Ashish Mahabal</a> on deep
-        learning for astronomy.
+        Previously I worked with <a href="https://theory.epfl.ch/osven/">Ola Svensson</a> (MSc) on clustering.
+        Before that, with <a href="https://sites.google.com/site/anirbandasgupta">Anirban Dasgupta</a> and
+        <a href="https://researcher.watson.ibm.com/researcher/view.php?person=in-garg.dinesh">Dinesh Garg</a>
+        (IBM Research, Bengaluru) on randomized linear algebra. I also spent a summer at Caltech on a
+        <a href="https://sfp.caltech.edu/documents/4439/abstracts_a-z_jan_2018_update_-_with_cover_for_web_site.pdf">SURF fellowship</a>
+        with <a href="https://www.astro.caltech.edu/~aam/">Ashish Mahabal</a> on deep learning for astronomy.
       </p>
     </section>
 
-
+    <!-- Publications -->
     <section class="section">
-      <h1 class="publicons">
-        Publications
-        <span>
-          <a href="https://scholar.google.com/citations?user=LpgWaeUAAAAJ&hl=en"><img src="google-scholar-square.svg" class="icon" alt="Google Scholar"></a>
-          <a href="https://dblp.uni-trier.de/pid/190/7383.html"><img src="dblp-square.svg" class="icon" alt="DBLP"></a>
-        </span>
-      </h1>
+      <h2>Publications <span class="tag">selected & grouped</span></h2>
 
-      <p><b><i>Streaming Attention Approximation via Discrepancy Theory</i></b><br>
-       Ekaterina Kochetkova, <b>KS</b>, Insu Han, Amir Zandieh, Michael Kapralov.<br>
-        <b>NeurIPS 2025 (Spotlight)</b><br>
-      <em>"A novel KV cache compression procedure based on discrepancy theory - provable guarantees and strong empirics on long-context benchmarks."</em><br>
-      <a href="https://arxiv.org/abs/2502.07861">[arxiv]</a><a href="https://github.com/ksheth96/BalanceKV">[code]</a></p>
+      <!-- LLM / FT / Optimization -->
+      <div class="section">
+        <h2>LLM Inference &amp; Fine-Tuning Optimization</h2>
+        <div class="pub-grid">
 
-      <p><b><i>Improved Algorithms for Kernel Matrix-Vector Multiplication</i></b><br>
-      (alphabetical order) Piotr Indyk, Michael Kapralov, <b>KS</b>, Tal Wagner.<br>
-      <a href="https://longcontextfm.github.io/"><b>ICLR 2025 (Poster)</b></a><br>
-      <em>"Subquadratic time mat-vec algorithm for attention computation in long-context LLMs."</em><br>
-      <b>Best Paper</b> at <a href="https://longcontextfm.github.io/"><b>ICML 2024</b></a> workshop on Long Context Foundation Models.<br>
-      <a href="https://openreview.net/forum?id=7CCzyEtZXH">[openreview]</a></p>
+          <article class="pub">
+            <h3 class="pub-title"><i>Streaming Attention Approximation via Discrepancy Theory</i></h3>
+            <p class="pub-authors">Ekaterina Kochetkova, <b>KS</b>, Insu Han, Amir Zandieh, Michael Kapralov.</p>
+            <div class="chips">
+              <span class="chip venue">NeurIPS 2025 • Spotlight</span>
+            </div>
+            <p class="note">A KV-cache compression method based on discrepancy theory with provable guarantees and strong long-context results.</p>
+            <p class="links-row">
+              <a href="https://arxiv.org/abs/2502.07861">arXiv</a>
+              <a href="https://github.com/ksheth96/BalanceKV">code</a>
+            </p>
+          </article>
 
-      <p><b><i>Sublinear Time Low-Rank Approximation of Hankel Matrices</i></b><br>
-      Michael Kapralov, Cameron Musco and <b>KS</b>.<br>
-      <a href="https://www.siam.org/conferences-events/siam-conferences/soda26/"><b>SODA 2026</b></a><br>
+          <article class="pub">
+            <h3 class="pub-title"><i>Improved Algorithms for Kernel Matrix-Vector Multiplication</i></h3>
+            <p class="pub-authors">(alphabetical) Piotr Indyk, Michael Kapralov, <b>KS</b>, Tal Wagner.</p>
+            <div class="chips">
+              <span class="chip venue">ICLR 2025 • Poster</span>
+              <span class="chip year">Best Paper — ICML 2024 Long-Context FM Workshop</span>
+            </div>
+            <p class="note">Subquadratic-time mat-vec for attention in long-context LLMs.</p>
+            <p class="links-row">
+              <a href="https://openreview.net/forum?id=7CCzyEtZXH">OpenReview</a>
+              <a href="https://longcontextfm.github.io/">Workshop</a>
+            </p>
+          </article>
 
-      <p><b><i>Sublinear Time Low-Rank Approximation of Toeplitz Matrices</i></b><br>
-      <a href="https://people.cs.umass.edu/~cmusco/">Cameron Musco</a> and <b>KS</b>.<br>
-      <a href="https://www.siam.org/conferences-events/past-event-archive/soda24/"><b>SODA 2024</b></a><br>
-      <a href="http://arxiv.org/abs/2404.13757">[arxiv]</a></p>
+        </div>
+      </div>
 
-      <p><b><i>Toeplitz Low-Rank Approximation with Sublinear Query Complexity</i></b><br>
-      Michael Kapralov, <a href="https://hannahlawrence.github.io/">Hannah Lawrence</a>, <a href="https://scholar.google.com/citations?user=ZDJ4JiAAAAAJ&hl=en&oi=ao">Mikhail Makarov</a>, <a href="https://people.cs.umass.edu/~cmusco/">Cameron Musco</a>, and <b>KS</b>.<br>
-      <a href="https://www.siam.org/conferences/cm/conference/soda23"><b>SODA 2023</b></a><br>
-      <a href="https://arxiv.org/abs/2211.11328">[arxiv]</a></p>
+      <!-- Algorithms -->
+      <div class="section">
+        <h2>Algorithms</h2>
+        <div class="pub-grid">
 
-      <p><b><i>Towards Non-Uniform k-Center with Constant types of Radii</i></b><br>
-      <a href="https://xinruij.github.io/">Xinrui Jia</a>, <a href="https://larsrohwedder.com/">Lars Rohwedder</a>, <b>KS</b>, <a href="https://theory.epfl.ch/osven/">Ola Svensson</a>.<br>
-      <a href="https://www.siam.org/conferences/cm/conference/sosa22"><b>SOSA 2022</b></a><br>
-      <a href="https://arxiv.org/abs/2110.02688">[arxiv]</a></p>
+          <article class="pub">
+            <h3 class="pub-title"><i>Sublinear Time Low-Rank Approximation of Hankel Matrices</i></h3>
+            <p class="pub-authors">Michael Kapralov, Cameron Musco, <b>KS</b>.</p>
+            <div class="chips"><span class="chip venue">SODA 2026</span></div>
+          </article>
 
-      <p><b><i>Fair Colorful k-Center Clustering</i></b><br>
-      <a href="https://xinruij.github.io/">Xinrui Jia</a>, <b>KS</b>, <a href="https://theory.epfl.ch/osven/">Ola Svensson</a>.<br>
-      <a href="https://link.springer.com/article/10.1007/s10107-021-01674-7"><b>Math. Programming 2021</b></a><br>
-      Preliminary version in <a href="https://www.lse.ac.uk/ipco-2020"><b>IPCO 2020</b></a><br>
-      <a href="https://arxiv.org/abs/2007.04059">[arxiv]</a> <a href="https://www.youtube.com/watch?v=E7CUukJE_9o&t=473s">[talk]</a></p>
+          <article class="pub">
+            <h3 class="pub-title"><i>Sublinear Time Low-Rank Approximation of Toeplitz Matrices</i></h3>
+            <p class="pub-authors"><a href="https://people.cs.umass.edu/~cmusco/">Cameron Musco</a>, <b>KS</b>.</p>
+            <div class="chips">
+              <span class="chip venue">SODA 2024</span>
+            </div>
+            <p class="links-row">
+              <a href="http://arxiv.org/abs/2404.13757">arXiv</a>
+            </p>
+          </article>
 
-      <p><b><i>Improved linear embeddings via Lagrange duality</i></b><br>
-      <b>KS</b>, Dinesh Garg, Anirban Dasgupta.<br>
-      <a href="https://www.springer.com/journal/10994"><b>Machine Learning, 2019</b></a><br>
-      <a href="https://link.springer.com/article/10.1007/s10994-018-5729-x">[paper]</a></p>
+          <article class="pub">
+            <h3 class="pub-title"><i>Toeplitz Low-Rank Approximation with Sublinear Query Complexity</i></h3>
+            <p class="pub-authors">Michael Kapralov, <a href="https://hannahlawrence.github.io/">Hannah Lawrence</a>, <a href="https://scholar.google.com/citations?user=ZDJ4JiAAAAAJ&hl=en&oi=ao">Mikhail Makarov</a>, <a href="https://people.cs.umass.edu/~cmusco/">Cameron Musco</a>, <b>KS</b>.</p>
+            <div class="chips"><span class="chip venue">SODA 2023</span></div>
+            <p class="links-row">
+              <a href="https://arxiv.org/abs/2211.11328">arXiv</a>
+            </p>
+          </article>
 
-      <p><b><i>Deep-learnt classification of light curves</i></b><br>
-      Ashish Mahabal, <b>KS</b>, Fabian Gieseke, Akshay Pai, S George Djorgovski, Andrew J Drake, Matthew J Graham.<br>
-      <b>IEEE SSCI 2017</b><br>
-      <a href="https://arxiv.org/abs/1709.06257">[arxiv]</a></p>
+          <article class="pub">
+            <h3 class="pub-title"><i>Towards Non-Uniform k-Center with Constant types of Radii</i></h3>
+            <p class="pub-authors"><a href="https://xinruij.github.io/">Xinrui Jia</a>, <a href="https://larsrohwedder.com/">Lars Rohwedder</a>, <b>KS</b>, <a href="https://theory.epfl.ch/osven/">Ola Svensson</a>.</p>
+            <div class="chips"><span class="chip venue">SOSA 2022</span></div>
+            <p class="links-row"><a href="https://arxiv.org/abs/2110.02688">arXiv</a></p>
+          </article>
+
+          <article class="pub">
+            <h3 class="pub-title"><i>Fair Colorful k-Center Clustering</i></h3>
+            <p class="pub-authors"><a href="https://xinruij.github.io/">Xinrui Jia</a>, <b>KS</b>, <a href="https://theory.epfl.ch/osven/">Ola Svensson</a>.</p>
+            <div class="chips">
+              <span class="chip venue">Math. Programming 2021</span>
+              <span class="chip">Prelim: IPCO 2020</span>
+            </div>
+            <p class="links-row">
+              <a href="https://arxiv.org/abs/2007.04059">arXiv</a>
+              <a href="https://www.youtube.com/watch?v=E7CUukJE_9o&t=473s">talk</a>
+              <a href="https://link.springer.com/article/10.1007/s10107-021-01674-7">journal</a>
+            </p>
+          </article>
+
+          <article class="pub">
+            <h3 class="pub-title"><i>Improved linear embeddings via Lagrange duality</i></h3>
+            <p class="pub-authors"><b>KS</b>, Dinesh Garg, Anirban Dasgupta.</p>
+            <div class="chips"><span class="chip venue">Machine Learning 2019</span></div>
+            <p class="links-row">
+              <a href="https://link.springer.com/article/10.1007/s10994-018-5729-x">paper</a>
+            </p>
+          </article>
+
+          <article class="pub">
+            <h3 class="pub-title"><i>Deep-learnt classification of light curves</i></h3>
+            <p class="pub-authors">Ashish Mahabal, <b>KS</b>, Fabian Gieseke, Akshay Pai, S. George Djorgovski, Andrew J. Drake, Matthew J. Graham.</p>
+            <div class="chips"><span class="chip venue">IEEE SSCI 2017</span></div>
+            <p class="links-row"><a href="https://arxiv.org/abs/1709.06257">arXiv</a></p>
+          </article>
+
+        </div>
+      </div>
     </section>
 
     <section class="section">
-      <h1>Teaching</h1>
-      <ul>
-        <li>EPFL:
-          <ul>
-            <li><b>CS-450 Advanced Algorithms</b></li>
-            <li><b>CS-250 Algorithms</b></li>
-          </ul>
-        </li>
-      </ul>
+      <h2>Teaching</h2>
+      <div class="card">
+        <ul>
+          <li>EPFL
+            <ul>
+              <li><b>CS-450 Advanced Algorithms</b></li>
+              <li><b>CS-250 Algorithms</b></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </section>
 
     <section class="section">
-      <h1>Service</h1>
-      <ul>
-        <li>Conference review: Reviewer for SODA 2022, STOC 2022, SOSA 2023.</li>
-        <li>Journal review: Theoretical Computer Science.</li>
-      </ul>
+      <h2>Service</h2>
+      <div class="card">
+        <ul>
+          <li>Conference review: SODA 2022, STOC 2022, SOSA 2023.</li>
+          <li>Journal review: Theoretical Computer Science.</li>
+        </ul>
+      </div>
     </section>
   </div>
+
+  <script>
+    // simple theme toggle (persists per-page session)
+    const btn = document.getElementById('toggleTheme');
+    let dark = true;
+    btn?.addEventListener('click', ()=>{
+      dark = !dark;
+      document.documentElement.style.filter = dark ? 'none' : 'invert(1) hue-rotate(180deg)';
+      btn.textContent = dark ? 'Toggle theme' : 'Toggle theme';
+    });
+  </script>
 </body>
 </html>
