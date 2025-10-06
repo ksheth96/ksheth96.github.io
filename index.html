@@ -32,9 +32,11 @@
     .avatar{width:92px;height:92px;border-radius:12px;object-fit:cover;border:1px solid var(--border)}
     .title h1{font-size:2.1rem;margin:0 0 4px 0;letter-spacing:.2px}
     .title .email{color:var(--tx-muted);font-size:.98rem}
-    .links a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid var(--border);background:#fff;margin-left:8px;text-decoration:none;transition:transform .15s ease, border-color .2s ease}
+    .links a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid var(--border);background:#fff;margin-left:8px;text-decoration:none;transition:transform .15s ease, border-color .2s ease;padding:0}
     .links a:hover{transform:translateY(-2px);border-color:var(--accent)}
-    .links img{height:20px;width:20px}
+    .links img{height:20px;width:20px;display:block;object-fit:contain}
+
+    .links{display:flex;align-items:center}
 
     /* Sections */
     .section{margin-top:28px}
@@ -61,6 +63,9 @@
     .chip.venue{background:#0f6fff;color:#fff}
     .links-row a{display:inline-block;margin-right:12px;font-weight:800;font-size:.9rem;color:var(--accent);text-decoration:none}
     .links-row a:hover{text-decoration:underline}
+    .pub-venue{margin:0 0 6px;color:var(--tx-muted);font-size:.95rem}
+    .pub-venue em{font-style:italic}
+    .pub-desc{margin:0 0 8px;color:var(--tx);font-size:.96rem}
 
     ul{padding-left:18px;margin:6px 0 14px}
     li{margin:4px 0}
@@ -112,7 +117,8 @@
 <div class="pub-body">
             <p class="pub-title"><i>Streaming Attention Approximation via Discrepancy Theory</i></p>
             <p class="pub-authors">Ekaterina Kochetkova, <b>KS</b>, Insu Han, Amir Zandieh, Michael Kapralov.</p>
-            <div class="chips"><span class="chip venue">NeurIPS 2025 • Spotlight</span></div>
+            <p class="pub-venue"><em>In Advances in Neural Information Processing Systems (NeurIPS)</em>, 2025 (Spotlight).</p>
+            <p class="pub-desc">A KV‑cache compression method based on discrepancy theory, offering provable approximation guarantees and strong empirical performance on long‑context benchmarks.</p>
             <p class="links-row"><a href="https://arxiv.org/abs/2502.07861">arXiv</a><a href="https://github.com/ksheth96/BalanceKV">code</a></p>
           </div>
         </li>
@@ -121,7 +127,8 @@
 <div class="pub-body">
             <p class="pub-title"><i>Improved Algorithms for Kernel Matrix-Vector Multiplication</i></p>
             <p class="pub-authors">(alphabetical) Piotr Indyk, Michael Kapralov, <b>KS</b>, Tal Wagner.</p>
-            <div class="chips"><span class="chip venue">ICLR 2025 • Poster</span><span class="chip">Best Paper — ICML 2024 LC-FM</span></div>
+            <p class="pub-venue"><em>In the International Conference on Learning Representations (ICLR)</em>, 2025 (Poster). Best Paper at ICML 2024 Workshop on Long Context Foundation Models.</p>
+            <p class="pub-desc">Subquadratic‑time algorithms for kernel/attention matrix–vector multiplication, enabling faster attention computations for long‑context LLMs with theoretical guarantees.</p>
             <p class="links-row"><a href="https://openreview.net/forum?id=7CCzyEtZXH">OpenReview</a><a href="https://longcontextfm.github.io/">Workshop</a></p>
           </div>
         </li>
@@ -134,7 +141,8 @@
 <div class="pub-body">
             <p class="pub-title"><i>Sublinear Time Low-Rank Approximation of Hankel Matrices</i></p>
             <p class="pub-authors">Michael Kapralov, Cameron Musco, <b>KS</b>.</p>
-            <div class="chips"><span class="chip venue">SODA 2026</span></div>
+            <p class="pub-venue"><em>In the ACM–SIAM Symposium on Discrete Algorithms (SODA)</em>, 2026.</p>
+            
           </div>
         </li>
         <li class="pub-item">
@@ -142,7 +150,8 @@
 <div class="pub-body">
             <p class="pub-title"><i>Sublinear Time Low-Rank Approximation of Toeplitz Matrices</i></p>
             <p class="pub-authors"><a href="https://people.cs.umass.edu/~cmusco/">Cameron Musco</a>, <b>KS</b>.</p>
-            <div class="chips"><span class="chip venue">SODA 2024</span></div>
+            <p class="pub-venue"><em>In the ACM–SIAM Symposium on Discrete Algorithms (SODA)</em>, 2024.</p>
+            
             <p class="links-row"><a href="http://arxiv.org/abs/2404.13757">arXiv</a></p>
           </div>
         </li>
@@ -151,7 +160,8 @@
 <div class="pub-body">
             <p class="pub-title"><i>Toeplitz Low-Rank Approximation with Sublinear Query Complexity</i></p>
             <p class="pub-authors">Michael Kapralov, <a href="https://hannahlawrence.github.io/">Hannah Lawrence</a>, <a href="https://scholar.google.com/citations?user=ZDJ4JiAAAAAJ&hl=en&oi=ao">Mikhail Makarov</a>, <a href="https://people.cs.umass.edu/~cmusco/">Cameron Musco</a>, <b>KS</b>.</p>
-            <div class="chips"><span class="chip venue">SODA 2023</span></div>
+            <p class="pub-venue"><em>In the ACM–SIAM Symposium on Discrete Algorithms (SODA)</em>, 2023.</p>
+            
             <p class="links-row"><a href="https://arxiv.org/abs/2211.11328">arXiv</a></p>
           </div>
         </li>
@@ -160,7 +170,8 @@
 <div class="pub-body">
             <p class="pub-title"><i>Towards Non-Uniform k-Center with Constant types of Radii</i></p>
             <p class="pub-authors"><a href="https://xinruij.github.io/">Xinrui Jia</a>, <a href="https://larsrohwedder.com/">Lars Rohwedder</a>, <b>KS</b>, <a href="https://theory.epfl.ch/osven/">Ola Svensson</a>.</p>
-            <div class="chips"><span class="chip venue">SOSA 2022</span></div>
+            <p class="pub-venue"><em>In the Symposium on Simplicity in Algorithms (SOSA)</em>, 2022.</p>
+            
             <p class="links-row"><a href="https://arxiv.org/abs/2110.02688">arXiv</a></p>
           </div>
         </li>
@@ -169,7 +180,8 @@
 <div class="pub-body">
             <p class="pub-title"><i>Fair Colorful k-Center Clustering</i></p>
             <p class="pub-authors"><a href="https://xinruij.github.io/">Xinrui Jia</a>, <b>KS</b>, <a href="https://theory.epfl.ch/osven/">Ola Svensson</a>.</p>
-            <div class="chips"><span class="chip venue">Math. Programming 2021</span><span class="chip">Prelim: IPCO 2020</span></div>
+            <p class="pub-venue"><em>In Mathematical Programming</em>, 2021. Preliminary version in <em>IPCO</em>, 2020.</p>
+            
             <p class="links-row"><a href="https://arxiv.org/abs/2007.04059">arXiv</a><a href="https://www.youtube.com/watch?v=E7CUukJE_9o&t=473s">talk</a><a href="https://link.springer.com/article/10.1007/s10107-021-01674-7">journal</a></p>
           </div>
         </li>
@@ -178,7 +190,8 @@
 <div class="pub-body">
             <p class="pub-title"><i>Improved linear embeddings via Lagrange duality</i></p>
             <p class="pub-authors"><b>KS</b>, Dinesh Garg, Anirban Dasgupta.</p>
-            <div class="chips"><span class="chip venue">Machine Learning 2019</span></div>
+            <p class="pub-venue"><em>In Machine Learning (Springer)</em>, 2019.</p>
+            
             <p class="links-row"><a href="https://link.springer.com/article/10.1007/s10994-018-5729-x">paper</a></p>
           </div>
         </li>
@@ -187,7 +200,8 @@
 <div class="pub-body">
             <p class="pub-title"><i>Deep-learnt classification of light curves</i></p>
             <p class="pub-authors">Ashish Mahabal, <b>KS</b>, Fabian Gieseke, Akshay Pai, S. George Djorgovski, Andrew J. Drake, Matthew J. Graham.</p>
-            <div class="chips"><span class="chip venue">IEEE SSCI 2017</span></div>
+            <p class="pub-venue"><em>In IEEE Symposium Series on Computational Intelligence (SSCI)</em>, 2017.</p>
+            
             <p class="links-row"><a href="https://arxiv.org/abs/1709.06257">arXiv</a></p>
           </div>
         </li>
