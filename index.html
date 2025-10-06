@@ -1,308 +1,207 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
   <title>Kshiteej Sheth</title>
   <style>
+    /* ===== Refined theme ===== */
     :root{
-      --bg:#0b0d10;
-      --panel:#12161b;
-      --panel-2:#151a21;
-      --text:#e9edf3;
-      --muted:#a9b3c1;
-      --accent:#53b6ff;
-      --accent-2:#8ef0c6;
-      --border:#1f2731;
-      --chip:#1a212b;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --bg:#070b10; --bg-soft:#0c121a; --bg-softer:#0f1620;
+      --tx:#f2f6fb; --tx-muted:#9fb0c6;
+      --border:#1e2a37; --chip:#141e2b;
+      --accent:#67c3ff; --accent-2:#60efc6;
+      --radius:18px; --radius-sm:12px; --shadow:0 14px 36px rgba(0,0,0,.4);
     }
-    @media (prefers-color-scheme: light){
-      :root{
-        --bg:#ffffff;
-        --panel:#f7f9fb;
-        --panel-2:#ffffff;
-        --text:#213043;
-        --muted:#5b6b80;
-        --accent:#1565ff;
-        --accent-2:#06c38f;
-        --border:#e6ecf2;
-        --chip:#eef3f8;
-        --shadow:0 8px 26px rgba(16,24,40,.08);
-      }
+    html[data-theme="light"]{
+      --bg:#ffffff; --bg-soft:#f6f9fc; --bg-softer:#ffffff;
+      --tx:#132233; --tx-muted:#5b6b80; --border:#e6ecf2; --chip:#eef3f8;
+      --accent:#165dff; --accent-2:#06c39b; --shadow:0 12px 28px rgba(16,24,40,.10);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{
-      margin:0;
-      font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
-      color:var(--text);
-      background:linear-gradient(180deg,var(--bg) 0%, var(--panel) 100%);
-      line-height:1.65;
-    }
+    body{margin:0;font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;color:var(--tx);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(103,195,255,.12), transparent 40%),
+        radial-gradient(900px 520px at 88% -15%, rgba(96,239,198,.10), transparent 45%),
+        linear-gradient(180deg,var(--bg) 0%, var(--bg-soft) 100%);
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; line-height:1.65}
+    .wrap{max-width:980px;margin:0 auto;padding:28px 20px 80px}
 
-    .wrap{
-      max-width:1024px;
-      margin:0 auto;
-      padding:28px 20px 64px;
-    }
+    /* Top nav */
+    .nav{position:sticky;top:0;backdrop-filter:blur(10px);background:linear-gradient(180deg, rgba(7,11,16,.75), rgba(7,11,16,.35));border-bottom:1px solid var(--border);z-index:10}
+    .nav-inner{max-width:980px;margin:0 auto;padding:10px 20px;display:flex;gap:14px;align-items:center;justify-content:flex-end}
+    .nav a{color:var(--tx-muted);text-decoration:none;font-weight:700;font-size:.9rem;margin:0 6px}
+    .nav a:hover{color:var(--accent)}
+    .btn{cursor:pointer;border:1px solid var(--border);background:var(--chip);color:var(--tx);padding:6px 10px;border-radius:10px;font-weight:700;font-size:.85rem}
 
     /* Header */
-    .hero{
-      display:grid;
-      grid-template-columns:110px 1fr auto;
-      gap:18px;
-      align-items:center;
-      background:var(--panel-2);
-      border:1px solid var(--border);
-      border-radius:18px;
-      padding:18px;
-      box-shadow:var(--shadow);
-    }
-    .avatar{
-      width:110px;height:110px;border-radius:14px;object-fit:cover;
-      border:1px solid var(--border);
-    }
-    .title h1{
-      font-size:1.9rem;margin:0 0 6px 0;letter-spacing:.2px;
-    }
-    .title .email{
-      color:var(--muted);font-size:.98rem;
-    }
-    .links a{
-      display:inline-flex;align-items:center;justify-content:center;
-      width:42px;height:42px;border-radius:12px;
-      border:1px solid var(--border);background:var(--chip);
-      margin-left:8px;text-decoration:none;
-      transition:transform .15s ease, border-color .2s ease;
-    }
-    .links a:hover{transform:translateY(-2px);border-color:var(--accent)}
+    .hero{display:grid;grid-template-columns:110px 1fr auto;gap:18px;align-items:center;background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00)), var(--bg-softer);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .avatar{width:110px;height:110px;border-radius:16px;object-fit:cover;border:1px solid var(--border)}
+    .title h1{font-size:2rem;margin:0 0 4px 0}
+    .title .email{color:var(--tx-muted);font-size:.98rem}
+    .links a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;border:1px solid var(--border);background:var(--chip);margin-left:8px;text-decoration:none;transition:transform .15s ease, border-color .2s ease, box-shadow .2s ease}
+    .links a:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 6px 18px rgba(107,194,255,.25)}
     .links img{height:22px;width:22px}
 
-    /* Bio */
-    .card{
-      margin-top:16px;
-      background:var(--panel-2);border:1px solid var(--border);
-      border-radius:18px;padding:18px 18px 8px;box-shadow:var(--shadow);
-    }
-    .card p{margin:0 0 12px 0;color:var(--text)}
+    /* Sections */
+    .section{margin-top:36px}
+    .section h2{position:relative;margin:0 0 16px;font-size:1.2rem}
+    .section h2:after{content:"";position:absolute;left:0;bottom:-6px;width:140px;height:2px;background:linear-gradient(90deg,var(--accent),transparent)}
+
+    /* Bio card */
+    .card{margin-top:16px;background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00)), var(--bg-softer);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 8px;font-size:1rem;color:var(--accent)}
+    .card p{margin:0 0 12px}
     .card a{color:var(--accent);text-decoration:none}
     .card a:hover{text-decoration:underline}
 
-    /* Section headings */
-    .section{
-      margin-top:34px;
-    }
-    .section h2{
-      display:flex;align-items:center;justify-content:space-between;
-      margin:0 0 14px 0;font-size:1.3rem;letter-spacing:.2px;
-    }
-    .section h2 .tag{
-      font-size:.8rem;font-weight:700;color:var(--accent);
-      background:linear-gradient(90deg,var(--chip),transparent);
-      padding:6px 10px;border-radius:999px;border:1px solid var(--border);
-    }
-
-    /* Publication cards */
-    .pub-grid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:12px;
-    }
-    @media(min-width:760px){
-      .pub-grid{grid-template-columns:1fr 1fr}
-    }
-    .pub{
-      background:var(--panel-2);border:1px solid var(--border);
-      border-radius:16px;padding:14px 14px 12px;position:relative;
-      transition:transform .12s ease,border-color .2s ease, box-shadow .2s ease;
-    }
-    .pub:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:var(--shadow)}
-    .pub-title{margin:0 0 6px 0;font-weight:700}
-    .pub-authors{margin:0 0 8px 0;color:var(--muted);font-size:.95rem}
-    .chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 10px}
-    .chip{
-      font-size:.75rem;font-weight:700;color:var(--text);
-      background:var(--chip);border:1px solid var(--border);
-      padding:4px 8px;border-radius:999px;
-    }
+    /* Publication list — Jon Barron style (media object) */
+    .pub-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+    .pub-item{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.00)), var(--bg-softer);border:1px solid var(--border);border-radius:16px;padding:12px 14px;transition:transform .12s ease,border-color .2s ease, box-shadow .2s ease}
+    .pub-item:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 10px 24px rgba(22,101,255,.18)}
+    .thumb{width:62px;height:62px;border-radius:10px;object-fit:cover;border:1px solid var(--border);background:linear-gradient(135deg, rgba(103,195,255,.25), rgba(96,239,198,.25))}
+    .pub-body{flex:1;min-width:0}
+    .pub-title{margin:0 0 6px;font-weight:800;font-size:1.0rem}
+    .pub-authors{margin:0 0 6px;color:var(--tx-muted);font-size:.94rem}
+    .chips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 6px}
+    .chip{font-size:.74rem;font-weight:800;color:var(--tx);background:var(--chip);border:1px solid var(--border);padding:3px 8px;border-radius:999px}
     .chip.venue{color:#fff;background:linear-gradient(90deg,var(--accent),#7a9cff)}
-    .chip.year{background:linear-gradient(90deg,var(--accent-2),#6ee7b7);color:#0b2b1f}
-    .links-row a{
-      display:inline-block;margin-right:10px;font-weight:700;font-size:.92rem;
-      color:var(--accent);text-decoration:none;border-bottom:1px dashed transparent;
-    }
+    .links-row a{display:inline-block;margin-right:10px;font-weight:800;font-size:.9rem;color:var(--accent);text-decoration:none;border-bottom:1px dashed transparent}
     .links-row a:hover{border-color:var(--accent)}
-    .note{color:var(--muted);font-size:.92rem;margin-top:4px}
 
-    /* Teaching & Service lists */
     ul{padding-left:18px;margin:6px 0 14px}
     li{margin:4px 0}
-
-    /* little toggle */
-    .toolbar{
-      display:flex;align-items:center;gap:10px;margin-top:10px
-    }
-    .btn{
-      cursor:pointer;border:1px solid var(--border);background:var(--chip);color:var(--text);
-      padding:6px 10px;border-radius:10px;font-weight:700;font-size:.85rem
-    }
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#pubs">Publications</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#service">Service</a>
+      <button class="btn" id="toggleTheme">Toggle theme</button>
+    </div>
+  </nav>
 
+  <div class="wrap">
     <header class="hero">
       <img class="avatar" src="personal_picture_2.jpg" alt="Kshiteej Sheth" />
       <div class="title">
         <h1>Kshiteej Sheth</h1>
         <div class="email">kshiteejsheth96 (at) gmail (dot) com</div>
-        <div class="toolbar">
-          <button class="btn" id="toggleTheme">Toggle theme</button>
-        </div>
       </div>
       <div class="links">
-        <a href="https://scholar.google.com/citations?user=LpgWaeUAAAAJ&hl=en" title="Google Scholar">
-          <img src="google-scholar-square.svg" alt="Google Scholar">
-        </a>
-        <a href="https://dblp.uni-trier.de/pid/190/7383.html" title="DBLP">
-          <img src="dblp-square.svg" alt="DBLP">
-        </a>
+        <a href="https://scholar.google.com/citations?user=LpgWaeUAAAAJ&hl=en" title="Google Scholar"><img src="google-scholar-square.svg" alt="Google Scholar"></a>
+        <a href="https://dblp.uni-trier.de/pid/190/7383.html" title="DBLP"><img src="dblp-square.svg" alt="DBLP"></a>
       </div>
     </header>
 
-    <section class="card">
-      <p>
-        <b> Academic Experience:</b> I am a fourth year CS PhD student at <a href="http://epfl.ch/">EPFL</a> working with
-        <a href="https://theory.epfl.ch/kapralov/">Michael Kapralov</a>. I am broadly interested in optimizing the memory/runtime of LLM inference and fine-tuning.
-        In the past I have also worked on fast algorithms for
-        large-scale & high-dimensional data analysis and numerical linear algebra.
-       
-      </p>
-      <p>
-        <b> Industry Experience:</b>  I spent Fall 2024 as an Applied Science intern at Amazon Luxembourg where I deployed ML and Optimization based solutions to production on AWS Infra for internal customers.
-        I have also worked with <a href="https://sites.google.com/site/anirbandasgupta">Anirban Dasgupta</a> and
-        <a href="https://researcher.watson.ibm.com/researcher/view.php?person=in-garg.dinesh">Dinesh Garg</a>
-        (IBM Research, Bengaluru) on randomized linear algebra. In the distant past I also spent a summer at Caltech on a
-        <a href="https://sfp.caltech.edu/documents/4439/abstracts_a-z_jan_2018_update_-_with_cover_for_web_site.pdf">SURF fellowship</a>
-        with <a href="https://www.astro.caltech.edu/~aam/">Ashish Mahabal</a> on deep learning for astronomy.
-      </p>
+    <!-- Intro (updated copy) -->
+    <section class="card" id="about">
+      <h3>Academic Experience</h3>
+      <p>I am a fourth year CS PhD student at <a href="http://epfl.ch/">EPFL</a> working with <a href="https://theory.epfl.ch/kapralov/">Michael Kapralov</a>. I am broadly interested in optimizing the memory/runtime of LLM inference and fine-tuning. In the past I have also worked on fast algorithms for large-scale &amp; high-dimensional data analysis and numerical linear algebra.</p>
+      <h3>Industry Experience</h3>
+      <p>I spent Fall 2024 as an Applied Science intern at Amazon Luxembourg where I deployed ML and Optimization based solutions to production on AWS Infra for internal customers. I have also worked with Anirban Dasgupta and Dinesh Garg (IBM Research, Bengaluru) on randomized linear algebra. In the distant past I also spent a summer at Caltech on a SURF fellowship with Ashish Mahabal on deep learning for astronomy.</p>
     </section>
 
-    <!-- Publications -->
-    <section class="section">
-      <h2>Publications <span class="tag">selected & grouped</span></h2>
+    <!-- Publications (stacked list with thumbnails) -->
+    <section id="pubs" class="section">
+      <h2>Publications</h2>
 
-      <!-- LLM / FT / Optimization -->
-      <div class="section">
-        <h2>LLM Inference &amp; Fine-Tuning Optimization.</h2>
-        <div class="pub-grid">
-
-          <article class="pub">
-            <h3 class="pub-title"><i>Streaming Attention Approximation via Discrepancy Theory</i></h3>
+      <h3 style="margin:10px 0 6px;color:var(--accent)">LLM Inference &amp; Fine-Tuning Optimization</h3>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <img class="thumb" src="thumbs/balancekv.png" alt="Streaming Attention via Discrepancy thumbnail" onerror="this.src='paper-icon.png'" />
+          <div class="pub-body">
+            <p class="pub-title"><i>Streaming Attention Approximation via Discrepancy Theory</i></p>
             <p class="pub-authors">Ekaterina Kochetkova, <b>KS</b>, Insu Han, Amir Zandieh, Michael Kapralov.</p>
-            <div class="chips">
-              <span class="chip venue">NeurIPS 2025 • Spotlight</span>
-            </div>
-            <p class="note">A KV-cache compression method based on discrepancy theory with provable guarantees and strong empirics on long-context benchmarks.</p>
-            <p class="links-row">
-              <a href="https://arxiv.org/abs/2502.07861">arXiv</a>
-              <a href="https://github.com/ksheth96/BalanceKV">code</a>
-            </p>
-          </article>
-
-          <article class="pub">
-            <h3 class="pub-title"><i>Improved Algorithms for Kernel Matrix-Vector Multiplication</i></h3>
+            <div class="chips"><span class="chip venue">NeurIPS 2025 • Spotlight</span></div>
+            A KV-cache compression method based on discrepancy theory with provable guarantees and strong empirics on long-context benchmarks.
+            <p class="links-row"><a href="https://arxiv.org/abs/2502.07861">arXiv</a><a href="https://github.com/ksheth96/BalanceKV">code</a></p>
+          </div>
+        </li>
+        <li class="pub-item">
+          <img class="thumb" src="thumbs/kernel-mv.png" alt="Kernel mat-vec thumbnail" onerror="this.src='paper-icon.png'" />
+          <div class="pub-body">
+            <p class="pub-title"><i>Improved Algorithms for Kernel Matrix-Vector Multiplication</i></p>
             <p class="pub-authors">(alphabetical) Piotr Indyk, Michael Kapralov, <b>KS</b>, Tal Wagner.</p>
-            <div class="chips">
-              <span class="chip venue">ICLR 2025 • Poster</span>
-              <span class="chip year">Best Paper — ICML 2024 Long-Context FM Workshop</span>
-            </div>
-            <p class="note">Subquadratic-time numerical linear algebra on attention matrices for long-context LLMs.</p>
-            <p class="links-row">
-              <a href="https://arxiv.org/abs/2507.23539">arXiv</a>
-              <a href="https://openreview.net/forum?id=wLnls9LS3x">OpenReview</a>
-              <a href="https://longcontextfm.github.io/">Workshop</a>
-            </p>
-          </article>
+            <div class="chips"><span class="chip venue">ICLR 2025 • Poster</span><span class="chip">Best Paper — ICML 2024 workshop on Long Context Foundation Models</span></div>
+            Subquadratic-time numerical linear algebra on attention matrices for long-context LLMs.
+            <p class="links-row"><a href="https://openreview.net/forum?id=7CCzyEtZXH">OpenReview</a><a href="https://arxiv.org/abs/2507.23539">arXiv</a></p>
+          </div>
+        </li>
+      </ul>
 
-        </div>
-      </div>
-
-      <!-- Algorithms -->
-      <div class="section">
-        <h2>Fast numerical linear algebra and large-scale data analysis.</h2>
-        <div class="pub-grid">
-
-          <article class="pub">
-            <h3 class="pub-title"><i>Sublinear Time Low-Rank Approximation of Hankel Matrices</i></h3>
+      <h3 style="margin:18px 0 6px;color:var(--accent)">Algorithms</h3>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <img class="thumb" src="thumbs/hankel.png" alt="Hankel LRA thumbnail" onerror="this.src='paper-icon.png'" />
+          <div class="pub-body">
+            <p class="pub-title"><i>Sublinear Time Low-Rank Approximation of Hankel Matrices</i></p>
             <p class="pub-authors">Michael Kapralov, Cameron Musco, <b>KS</b>.</p>
             <div class="chips"><span class="chip venue">SODA 2026</span></div>
-          </article>
-
-          <article class="pub">
-            <h3 class="pub-title"><i>Sublinear Time Low-Rank Approximation of Toeplitz Matrices</i></h3>
+          </div>
+        </li>
+        <li class="pub-item">
+          <img class="thumb" src="thumbs/toeplitz-2024.png" alt="Toeplitz 2024 thumbnail" onerror="this.src='paper-icon.png'" />
+          <div class="pub-body">
+            <p class="pub-title"><i>Sublinear Time Low-Rank Approximation of Toeplitz Matrices</i></p>
             <p class="pub-authors"><a href="https://people.cs.umass.edu/~cmusco/">Cameron Musco</a>, <b>KS</b>.</p>
-            <div class="chips">
-              <span class="chip venue">SODA 2024</span>
-            </div>
-            <p class="links-row">
-              <a href="http://arxiv.org/abs/2404.13757">arXiv</a>
-            </p>
-          </article>
-
-          <article class="pub">
-            <h3 class="pub-title"><i>Toeplitz Low-Rank Approximation with Sublinear Query Complexity</i></h3>
+            <div class="chips"><span class="chip venue">SODA 2024</span></div>
+            <p class="links-row"><a href="http://arxiv.org/abs/2404.13757">arXiv</a></p>
+          </div>
+        </li>
+        <li class="pub-item">
+          <img class="thumb" src="thumbs/toeplitz-2023.png" alt="Toeplitz 2023 thumbnail" onerror="this.src='paper-icon.png'" />
+          <div class="pub-body">
+            <p class="pub-title"><i>Toeplitz Low-Rank Approximation with Sublinear Query Complexity</i></p>
             <p class="pub-authors">Michael Kapralov, <a href="https://hannahlawrence.github.io/">Hannah Lawrence</a>, <a href="https://scholar.google.com/citations?user=ZDJ4JiAAAAAJ&hl=en&oi=ao">Mikhail Makarov</a>, <a href="https://people.cs.umass.edu/~cmusco/">Cameron Musco</a>, <b>KS</b>.</p>
             <div class="chips"><span class="chip venue">SODA 2023</span></div>
-            <p class="links-row">
-              <a href="https://arxiv.org/abs/2211.11328">arXiv</a>
-            </p>
-          </article>
-
-          <article class="pub">
-            <h3 class="pub-title"><i>Towards Non-Uniform k-Center with Constant types of Radii</i></h3>
+            <p class="links-row"><a href="https://arxiv.org/abs/2211.11328">arXiv</a></p>
+          </div>
+        </li>
+        <li class="pub-item">
+          <img class="thumb" src="thumbs/kcenter.png" alt="k-center thumbnail" onerror="this.src='paper-icon.png'" />
+          <div class="pub-body">
+            <p class="pub-title"><i>Towards Non-Uniform k-Center with Constant types of Radii</i></p>
             <p class="pub-authors"><a href="https://xinruij.github.io/">Xinrui Jia</a>, <a href="https://larsrohwedder.com/">Lars Rohwedder</a>, <b>KS</b>, <a href="https://theory.epfl.ch/osven/">Ola Svensson</a>.</p>
             <div class="chips"><span class="chip venue">SOSA 2022</span></div>
             <p class="links-row"><a href="https://arxiv.org/abs/2110.02688">arXiv</a></p>
-          </article>
-
-          <article class="pub">
-            <h3 class="pub-title"><i>Fair Colorful k-Center Clustering</i></h3>
+          </div>
+        </li>
+        <li class="pub-item">
+          <img class="thumb" src="thumbs/fair.png" alt="Fair clustering thumbnail" onerror="this.src='paper-icon.png'" />
+          <div class="pub-body">
+            <p class="pub-title"><i>Fair Colorful k-Center Clustering</i></p>
             <p class="pub-authors"><a href="https://xinruij.github.io/">Xinrui Jia</a>, <b>KS</b>, <a href="https://theory.epfl.ch/osven/">Ola Svensson</a>.</p>
-            <div class="chips">
-              <span class="chip venue">Math. Programming 2021</span>
-              <span class="chip">Prelim: IPCO 2020</span>
-            </div>
-            <p class="links-row">
-              <a href="https://arxiv.org/abs/2007.04059">arXiv</a>
-              <a href="https://www.youtube.com/watch?v=E7CUukJE_9o&t=473s">talk</a>
-              <a href="https://link.springer.com/article/10.1007/s10107-021-01674-7">journal</a>
-            </p>
-          </article>
-
-          <article class="pub">
-            <h3 class="pub-title"><i>Improved linear embeddings via Lagrange duality</i></h3>
+            <div class="chips"><span class="chip venue">Math. Programming 2021</span><span class="chip">Prelim: IPCO 2020</span></div>
+            <p class="links-row"><a href="https://arxiv.org/abs/2007.04059">arXiv</a><a href="https://www.youtube.com/watch?v=E7CUukJE_9o&t=473s">talk</a><a href="https://link.springer.com/article/10.1007/s10107-021-01674-7">journal</a></p>
+          </div>
+        </li>
+        <li class="pub-item">
+          <img class="thumb" src="thumbs/lagrange.png" alt="Lagrange embeddings thumbnail" onerror="this.src='paper-icon.png'" />
+          <div class="pub-body">
+            <p class="pub-title"><i>Improved linear embeddings via Lagrange duality</i></p>
             <p class="pub-authors"><b>KS</b>, Dinesh Garg, Anirban Dasgupta.</p>
             <div class="chips"><span class="chip venue">Machine Learning 2019</span></div>
-            <p class="links-row">
-              <a href="https://link.springer.com/article/10.1007/s10994-018-5729-x">paper</a>
-            </p>
-          </article>
-
-          <article class="pub">
-            <h3 class="pub-title"><i>Deep-learnt classification of light curves</i></h3>
+            <p class="links-row"><a href="https://link.springer.com/article/10.1007/s10994-018-5729-x">paper</a></p>
+          </div>
+        </li>
+        <li class="pub-item">
+          <img class="thumb" src="thumbs/astro.png" alt="Astronomy DL thumbnail" onerror="this.src='paper-icon.png'" />
+          <div class="pub-body">
+            <p class="pub-title"><i>Deep-learnt classification of light curves</i></p>
             <p class="pub-authors">Ashish Mahabal, <b>KS</b>, Fabian Gieseke, Akshay Pai, S. George Djorgovski, Andrew J. Drake, Matthew J. Graham.</p>
             <div class="chips"><span class="chip venue">IEEE SSCI 2017</span></div>
             <p class="links-row"><a href="https://arxiv.org/abs/1709.06257">arXiv</a></p>
-          </article>
-
-        </div>
-      </div>
+          </div>
+        </li>
+      </ul>
     </section>
 
-    <section class="section">
+    <section id="teaching" class="section">
       <h2>Teaching</h2>
       <div class="card">
         <ul>
@@ -316,7 +215,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section id="service" class="section">
       <h2>Service</h2>
       <div class="card">
         <ul>
@@ -327,14 +226,16 @@
   </div>
 
   <script>
-    // simple theme toggle (persists per-page session)
+    // Theme toggle & persistence
     const btn = document.getElementById('toggleTheme');
-    let dark = true;
     btn?.addEventListener('click', ()=>{
-      dark = !dark;
-      document.documentElement.style.filter = dark ? 'none' : 'invert(1) hue-rotate(180deg)';
-      btn.textContent = dark ? 'Toggle theme' : 'Toggle theme';
+      const html = document.documentElement;
+      const light = html.getAttribute('data-theme') === 'light';
+      html.setAttribute('data-theme', light ? 'dark' : 'light');
+      localStorage.setItem('ks-theme', light ? 'dark' : 'light');
     });
+    const saved = localStorage.getItem('ks-theme');
+    if(saved){ document.documentElement.setAttribute('data-theme', saved); }
   </script>
 </body>
 </html>
