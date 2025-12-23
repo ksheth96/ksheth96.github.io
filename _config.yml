@@ -7,7 +7,6 @@ profile_picture: "/personal_picture_2.jpg"
 github_username: ksheth96
 scholar_url: "https://scholar.google.com/citations?user=LpgWaeUAAAAJ&hl=en"
 
-theme: academic
 remote_theme: gaalcaras/academic
 plugins:
   - jekyll-remote-theme
