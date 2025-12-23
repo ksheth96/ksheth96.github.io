@@ -1,253 +1,86 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-  <title>Kshiteej Sheth</title>
-  <style>
-    /* ===== Refined theme ===== */
-    :root{
-      --bg:#ffffff; --bg-soft:#ffffff; --bg-softer:#ffffff;
-      --tx:#1a1f2b; --tx-muted:#5c6675;
-      --border:#e6e9ef; --chip:#f4f6fb;
-      --accent:#0f6fff; --accent-2:#06c39b;
-      --radius:14px; --radius-sm:10px; --shadow:none;
-    }
-    html[data-theme="light"]{ /* same as root for minimalist style */ }
-    *{box-sizing:border-box}
-    html,body{margin:0;font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;color:var(--tx);background:var(--bg);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.7}
-    .wrap{max-width:900px;margin:0 auto;padding:28px 18px 80px}
+---
+layout: about
+title:
+permalink: /
+---
 
-    /* Top nav */
-    .nav{position:sticky;top:0;background:rgba(255,255,255,.9);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--border);z-index:10}
-    .nav-inner{max-width:900px;margin:0 auto;padding:10px 18px;display:flex;gap:18px;align-items:center;justify-content:space-between}
-    .brand{font-weight:800;color:var(--tx);letter-spacing:.2px}
-    .nav a{color:var(--tx-muted);text-decoration:none;font-weight:700;font-size:.92rem;margin:0 6px}
-    .nav a:hover{color:var(--accent)}
-    .btn{cursor:pointer;border:1px solid var(--border);background:#fff;color:var(--tx);padding:6px 10px;border-radius:10px;font-weight:700;font-size:.85rem}
+<p>I am a final year CS PhD student at <a href="http://epfl.ch/">EPFL</a> working with <a href="https://theory.epfl.ch/kapralov/">Michael Kapralov</a>. I am broadly interested in LLM inference and fine-tuning optimization with recent works on fast attention, KV cache compression and data-selection for LLM fine tuning. In the past I have also worked on fast algorithms for large-scale and high-dimensional data analysis and numerical linear algebra.</p>
 
-    /* Header */
-    .hero{display:grid;grid-template-columns:92px 1fr auto;gap:16px;align-items:center;padding:6px 0;border:none;background:transparent}
-    .avatar{width:92px;height:92px;border-radius:12px;object-fit:cover;border:1px solid var(--border)}
-    .title h1{font-size:2.1rem;margin:0 0 4px 0;letter-spacing:.2px}
-    .title .email{color:var(--tx-muted);font-size:.98rem}
-    .links a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid var(--border);background:#fff;margin-left:8px;text-decoration:none;transition:transform .15s ease, border-color .2s ease;padding:0}
-    .links a:hover{transform:translateY(-2px);border-color:var(--accent)}
-    .links img{height:20px;width:20px;display:block;object-fit:contain}
+<p>In my current research, I am exploring:</p>
+<ul>
+  <li>Fast attention, KV cache compression, and long-context inference</li>
+  <li>Data selection and fine-tuning efficiency for LLMs</li>
+  <li>Sublinear algorithms for high-dimensional data analysis</li>
+</ul>
 
-    .links{display:flex;align-items:center}
+<p>Experience:</p>
+<ul>
+  <li>Student Researcher, Google Research (October 2025-Present): Working on LLM inference optimization and data selection for LLM fine-tuning.</li>
+  <li>Applied Science Intern, Amazon Research (July 2024-Jan 2025): Deployed ML and optimization solutions to production on AWS infrastructure for internal customers.</li>
+  <li>Research Assistant (January 2017-August 2018): Worked with Anirban Dasgupta and Dinesh Garg (IBM Research, Bengaluru) on randomized linear algebra.</li>
+  <li>Caltech - SURF Fellow (May 2017-July 2017): Worked with Ashish Mahabal on deep learning for astronomy.</li>
+</ul>
 
-    /* Sections */
-    .section{margin-top:28px}
-    .section h2{position:relative;margin:0 0 12px;font-size:1.05rem;letter-spacing:.3px;color:var(--tx-muted);text-transform:uppercase}
-    .section h2:after{content:"";position:absolute;left:0;bottom:-6px;width:120px;height:2px;background:var(--border)}
+<div class="news">
+  <h2 id="publications">Publications</h2>
+  <p>Full list also on <a href="https://scholar.google.com/citations?user=LpgWaeUAAAAJ&hl=en">Google Scholar</a>.</p>
 
-    /* Bio block */
-    .card{margin-top:8px;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:16px}
-    .card h3{margin:0 0 6px;font-size:1rem;color:var(--tx)}
-    .card p{margin:0 0 10px}
-    .card a{color:var(--accent);text-decoration:none}
-    .card a:hover{text-decoration:underline}
+  <p><span style="font-family: sans-serif"><strong>Streaming Attention Approximation via Discrepancy Theory</strong></span>.<br />
+  Ekaterina Kochetkova, <ins>Kshiteej Sheth</ins>, Insu Han, Amir Zandieh, Michael Kapralov.<br />
+  <em>NeurIPS 2025 (Spotlight)</em>.<br />
+  [<a href="https://arxiv.org/abs/2502.07861"><code class="language-plaintext highlighter-rouge">arXiv</code></a> | <a href="https://github.com/ksheth96/BalanceKV"><code class="language-plaintext highlighter-rouge">Code</code></a>]</p>
 
-    /* Publications — minimalist list */
-    .pub-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
-    .pub-item{display:flex;gap:12px;align-items:flex-start;padding:10px 2px;border-bottom:1px solid var(--border)}
-    .pub-item:last-child{border-bottom:none}
-    .thumb{width:54px;height:54px;border-radius:8px;border:1px solid var(--border);background:#fafbff;display:block}
-    .pub-body{flex:1;min-width:0}
-    .pub-title{margin:0 0 4px;font-weight:800;font-size:1.0rem}
-    .pub-authors{margin:0 6px 6px 0;color:var(--tx-muted);font-size:.95rem}
-    .chips{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 6px}
-    .chip{font-size:.72rem;font-weight:800;color:var(--tx);background:var(--chip);border:1px solid var(--border);padding:3px 8px;border-radius:999px}
-    .chip.venue{background:#0f6fff;color:#fff}
-    .links-row a{display:inline-block;margin-right:12px;font-weight:800;font-size:.9rem;color:var(--accent);text-decoration:none}
-    .links-row a:hover{text-decoration:underline}
-    .pub-venue{margin:0 0 6px;color:var(--tx-muted);font-size:.95rem}
-    .pub-venue em{font-style:italic}
-    .pub-desc{margin:0 0 8px;color:var(--tx);font-size:.96rem}
+  <p><span style="font-family: sans-serif"><strong>Improved Algorithms for Kernel Matrix-Vector Multiplication</strong></span>.<br />
+  (alphabetical) Piotr Indyk, Michael Kapralov, <ins>Kshiteej Sheth</ins>, Tal Wagner.<br />
+  <em>ICLR 2025 (Poster)</em>. Best Paper at ICML 2024 Workshop on Long Context Foundation Models.<br />
+  [<a href="https://openreview.net/forum?id=7CCzyEtZXH"><code class="language-plaintext highlighter-rouge">OpenReview</code></a> | <a href="https://longcontextfm.github.io/"><code class="language-plaintext highlighter-rouge">Workshop</code></a>]</p>
 
-    ul{padding-left:18px;margin:6px 0 14px}
-    li{margin:4px 0}
-  </style>
-</head>
-<body>
-  <nav class="nav">
-    <div class="nav-inner">
-      <div class="brand">Kshiteej Sheth</div>
-      <div>
-        <a href="#pubs">Publications</a>
-        <a href="#teaching">Teaching</a>
-        <a href="#service">Service</a>
-        <button class="btn" id="toggleTheme">Toggle theme</button>
-      </div>
-    </div>
-  </nav>
+  <p><span style="font-family: sans-serif"><strong>Sublinear Time Low-Rank Approximation of Hankel Matrices</strong></span>.<br />
+  Michael Kapralov, Cameron Musco, <ins>Kshiteej Sheth</ins>.<br />
+  <em>SODA 2026</em>.</p>
 
-  <div class="wrap">
-    <header class="hero">
-      <img class="avatar" src="personal_picture_2.jpg" alt="Kshiteej Sheth" />
-      <div class="title">
-        <h1>Kshiteej Sheth</h1>
-        <div class="email">kshiteejsheth96 (at) gmail (dot) com</div>
-      </div>
-      <div class="links">
-        <a href="https://scholar.google.com/citations?user=LpgWaeUAAAAJ&hl=en" title="Google Scholar"><img src="google-scholar-square.svg" alt="Google Scholar"></a>
-        <a href="https://github.com/ksheth96" title="GitHub"><img src="github.png" alt="GitHub"></a>
-        <a href="https://dblp.uni-trier.de/pid/190/7383.html" title="DBLP"><img src="dblp-square.svg" alt="DBLP"></a>
-      </div>
-    </header>
+  <p><span style="font-family: sans-serif"><strong>Sublinear Time Low-Rank Approximation of Toeplitz Matrices</strong></span>.<br />
+  Cameron Musco, <ins>Kshiteej Sheth</ins>.<br />
+  <em>SODA 2024</em>.<br />
+  [<a href="http://arxiv.org/abs/2404.13757"><code class="language-plaintext highlighter-rouge">arXiv</code></a>]</p>
 
-    <!-- Intro (updated copy) -->
-    <section class="card" id="about">
-      <h3>Introduction</h3>
-      <p>I am a final year CS PhD student at <a href="http://epfl.ch/">EPFL</a> working with <a href="https://theory.epfl.ch/kapralov/">Michael Kapralov</a>. I am broadly interested in LLM inference and fine-tuning optimization with recent works on fast attention, KV cache compression and data-selection for LLM fine tuning. In the past I have also worked on fast algorithms for large-scale &amp; high-dimensional data analysis and numerical linear algebra.</p>
-      <h3>Experience</h3>
-      <ul>
-    <li>Student Researcher, Google Research (October 2025-Present): Working on various projects on LLM inference optimization and data selection for LLM finetuning.</li>
-    <li>Applied Science Intern, Amazon Research (July 2024-Jan 2025): Deployed ML and optimization solutions to production on AWS infrastructure for internal customers.</li>
-    <li>Research Assistant (January 2017-August 2018): Worked with Anirban Dasgupta and Dinesh Garg (IBM Research, Bengaluru) on randomized linear algebra.</li>
-    <li>Caltech — SURF Fellow (May 2017-July 2017): Worked with Ashish Mahabal on deep learning for astronomy.</li>
+  <p><span style="font-family: sans-serif"><strong>Toeplitz Low-Rank Approximation with Sublinear Query Complexity</strong></span>.<br />
+  Michael Kapralov, Hannah Lawrence, Mikhail Makarov, Cameron Musco, <ins>Kshiteej Sheth</ins>.<br />
+  <em>SODA 2023</em>.<br />
+  [<a href="https://arxiv.org/abs/2211.11328"><code class="language-plaintext highlighter-rouge">arXiv</code></a>]</p>
+
+  <p><span style="font-family: sans-serif"><strong>Towards Non-Uniform k-Center with Constant types of Radii</strong></span>.<br />
+  Xinrui Jia, Lars Rohwedder, <ins>Kshiteej Sheth</ins>, Ola Svensson.<br />
+  <em>SOSA 2022</em>.<br />
+  [<a href="https://arxiv.org/abs/2110.02688"><code class="language-plaintext highlighter-rouge">arXiv</code></a>]</p>
+
+  <p><span style="font-family: sans-serif"><strong>Fair Colorful k-Center Clustering</strong></span>.<br />
+  Xinrui Jia, <ins>Kshiteej Sheth</ins>, Ola Svensson.<br />
+  <em>Mathematical Programming</em>, 2021. Preliminary version in <em>IPCO</em>, 2020.<br />
+  [<a href="https://arxiv.org/abs/2007.04059"><code class="language-plaintext highlighter-rouge">arXiv</code></a> | <a href="https://www.youtube.com/watch?v=E7CUukJE_9o&t=473s"><code class="language-plaintext highlighter-rouge">Talk</code></a> | <a href="https://link.springer.com/article/10.1007/s10107-021-01674-7"><code class="language-plaintext highlighter-rouge">Journal</code></a>]</p>
+
+  <p><span style="font-family: sans-serif"><strong>Improved linear embeddings via Lagrange duality</strong></span>.<br />
+  <ins>Kshiteej Sheth</ins>, Dinesh Garg, Anirban Dasgupta.<br />
+  <em>Machine Learning (Springer)</em>, 2019.<br />
+  [<a href="https://link.springer.com/article/10.1007/s10994-018-5729-x"><code class="language-plaintext highlighter-rouge">Paper</code></a>]</p>
+
+  <p><span style="font-family: sans-serif"><strong>Deep-learnt classification of light curves</strong></span>.<br />
+  Ashish Mahabal, <ins>Kshiteej Sheth</ins>, Fabian Gieseke, Akshay Pai, S. George Djorgovski, Andrew J. Drake, Matthew J. Graham.<br />
+  <em>SSCI 2017</em>.<br />
+  [<a href="https://arxiv.org/abs/1709.06257"><code class="language-plaintext highlighter-rouge">arXiv</code></a>]</p>
+</div>
+
+<h2 id="teaching">Teaching</h2>
+<ul>
+  <li>EPFL
+    <ul>
+      <li><strong>CS-450 Advanced Algorithms</strong></li>
+      <li><strong>CS-250 Algorithms</strong></li>
     </ul>
-    </section>
+  </li>
+</ul>
 
-    <!-- Publications (stacked list with thumbnails) -->
-    <section id="pubs" class="section">
-      <h2>Publications</h2>
-
-      <h3 style="margin:10px 0 6px;color:var(--accent)">LLM Inference &amp; Fine-Tuning Optimization</h3>
-      <ul class="pub-list">
-        <li class="pub-item">
-          <img class="thumb" src="thumbs/attention_research_1.png" alt="LLM thumbnail" onerror="this.src='paper-icon.png'" />
-<div class="pub-body">
-            <p class="pub-title"><i>Streaming Attention Approximation via Discrepancy Theory</i></p>
-            <p class="pub-authors">Ekaterina Kochetkova, <b>KS</b>, Insu Han, Amir Zandieh, Michael Kapralov.</p>
-            <p class="pub-venue"><em>In Advances in Neural Information Processing Systems (NeurIPS)</em>, 2025 (Spotlight).</p>
-            <p class="pub-desc">A KV‑cache compression method based on discrepancy theory, offering provable approximation guarantees and strong empirical performance on long‑context benchmarks.</p>
-            <p class="links-row"><a href="https://arxiv.org/abs/2502.07861">arXiv</a><a href="https://github.com/ksheth96/BalanceKV">code</a></p>
-          </div>
-        </li>
-        <li class="pub-item">
-          <img class="thumb" src="thumbs/attention_research_1.png" alt="LLM thumbnail" onerror="this.src='paper-icon.png'" />
-<div class="pub-body">
-            <p class="pub-title"><i>Improved Algorithms for Kernel Matrix-Vector Multiplication</i></p>
-            <p class="pub-authors">(alphabetical) Piotr Indyk, Michael Kapralov, <b>KS</b>, Tal Wagner.</p>
-            <p class="pub-venue"><em>In the International Conference on Learning Representations (ICLR)</em>, 2025 (Poster). Best Paper at ICML 2024 Workshop on Long Context Foundation Models.</p>
-            <p class="pub-desc">Subquadratic‑time algorithms for kernel/attention matrix–vector multiplication, enabling faster attention computations for long‑context LLMs with theoretical guarantees.</p>
-            <p class="links-row"><a href="https://openreview.net/forum?id=7CCzyEtZXH">OpenReview</a><a href="https://longcontextfm.github.io/">Workshop</a></p>
-          </div>
-        </li>
-      </ul>
-
-      <h3 style="margin:18px 0 6px;color:var(--accent)">Fast numerical linear algebra and data analysis</h3>
-      <ul class="pub-list">
-        <li class="pub-item">
-          <img class="thumb" src="thumbs/hankel_blocky_spread.png" alt="Hankel thumbnail" onerror="this.src='paper-icon.png'" />
-<div class="pub-body">
-            <p class="pub-title"><i>Sublinear Time Low-Rank Approximation of Hankel Matrices</i></p>
-            <p class="pub-authors">Michael Kapralov, Cameron Musco, <b>KS</b>.</p>
-            <p class="pub-venue"><em>In the ACM–SIAM Symposium on Discrete Algorithms (SODA)</em>, 2026.</p>
-            
-          </div>
-        </li>
-        <li class="pub-item">
-          <img class="thumb" src="thumbs/toeplitz_blocky_spread.png" alt="Toeplitz 2024 thumbnail" onerror="this.src='paper-icon.png'" />
-<div class="pub-body">
-            <p class="pub-title"><i>Sublinear Time Low-Rank Approximation of Toeplitz Matrices</i></p>
-            <p class="pub-authors"><a href="https://people.cs.umass.edu/~cmusco/">Cameron Musco</a>, <b>KS</b>.</p>
-            <p class="pub-venue"><em>In the ACM–SIAM Symposium on Discrete Algorithms (SODA)</em>, 2024.</p>
-            
-            <p class="links-row"><a href="http://arxiv.org/abs/2404.13757">arXiv</a></p>
-          </div>
-        </li>
-        <li class="pub-item">
-          <img class="thumb" src="thumbs/toeplitz_blocky_spread.png" alt="Toeplitz 2023 thumbnail" onerror="this.src='paper-icon.png'" />
-<div class="pub-body">
-            <p class="pub-title"><i>Toeplitz Low-Rank Approximation with Sublinear Query Complexity</i></p>
-            <p class="pub-authors">Michael Kapralov, <a href="https://hannahlawrence.github.io/">Hannah Lawrence</a>, <a href="https://scholar.google.com/citations?user=ZDJ4JiAAAAAJ&hl=en&oi=ao">Mikhail Makarov</a>, <a href="https://people.cs.umass.edu/~cmusco/">Cameron Musco</a>, <b>KS</b>.</p>
-            <p class="pub-venue"><em>In the ACM–SIAM Symposium on Discrete Algorithms (SODA)</em>, 2023.</p>
-            
-            <p class="links-row"><a href="https://arxiv.org/abs/2211.11328">arXiv</a></p>
-          </div>
-        </li>
-        <li class="pub-item">
-          <img class="thumb" src="thumbs/kcenter.png" alt="k-center thumbnail" onerror="this.src='paper-icon.png'" />
-<div class="pub-body">
-            <p class="pub-title"><i>Towards Non-Uniform k-Center with Constant types of Radii</i></p>
-            <p class="pub-authors"><a href="https://xinruij.github.io/">Xinrui Jia</a>, <a href="https://larsrohwedder.com/">Lars Rohwedder</a>, <b>KS</b>, <a href="https://theory.epfl.ch/osven/">Ola Svensson</a>.</p>
-            <p class="pub-venue"><em>In the Symposium on Simplicity in Algorithms (SOSA)</em>, 2022.</p>
-            
-            <p class="links-row"><a href="https://arxiv.org/abs/2110.02688">arXiv</a></p>
-          </div>
-        </li>
-        <li class="pub-item">
-          <img class="thumb" src="thumbs/fair.png" alt="Fair clustering thumbnail" onerror="this.src='paper-icon.png'" />
-<div class="pub-body">
-            <p class="pub-title"><i>Fair Colorful k-Center Clustering</i></p>
-            <p class="pub-authors"><a href="https://xinruij.github.io/">Xinrui Jia</a>, <b>KS</b>, <a href="https://theory.epfl.ch/osven/">Ola Svensson</a>.</p>
-            <p class="pub-venue"><em>In Mathematical Programming</em>, 2021. Preliminary version in <em>IPCO</em>, 2020.</p>
-            
-            <p class="links-row"><a href="https://arxiv.org/abs/2007.04059">arXiv</a><a href="https://www.youtube.com/watch?v=E7CUukJE_9o&t=473s">talk</a><a href="https://link.springer.com/article/10.1007/s10107-021-01674-7">journal</a></p>
-          </div>
-        </li>
-        <li class="pub-item">
-          <img class="thumb" src="thumbs/lagrange.png" alt="Lagrange embeddings thumbnail" onerror="this.src='paper-icon.png'" />
-<div class="pub-body">
-            <p class="pub-title"><i>Improved linear embeddings via Lagrange duality</i></p>
-            <p class="pub-authors"><b>KS</b>, Dinesh Garg, Anirban Dasgupta.</p>
-            <p class="pub-venue"><em>In Machine Learning (Springer)</em>, 2019.</p>
-            
-            <p class="links-row"><a href="https://link.springer.com/article/10.1007/s10994-018-5729-x">paper</a></p>
-          </div>
-        </li>
-        <li class="pub-item">
-          <img class="thumb" src="thumbs/astro.png" alt="Astronomy DL thumbnail" onerror="this.src='paper-icon.png'" />
-<div class="pub-body">
-            <p class="pub-title"><i>Deep-learnt classification of light curves</i></p>
-            <p class="pub-authors">Ashish Mahabal, <b>KS</b>, Fabian Gieseke, Akshay Pai, S. George Djorgovski, Andrew J. Drake, Matthew J. Graham.</p>
-            <p class="pub-venue"><em>In IEEE Symposium Series on Computational Intelligence (SSCI)</em>, 2017.</p>
-            
-            <p class="links-row"><a href="https://arxiv.org/abs/1709.06257">arXiv</a></p>
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <section id="teaching" class="section">
-      <h2>Teaching</h2>
-      <div class="card">
-        <ul>
-          <li>EPFL
-            <ul>
-              <li><b>CS-450 Advanced Algorithms</b></li>
-              <li><b>CS-250 Algorithms</b></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="service" class="section">
-      <h2>Service</h2>
-      <div class="card">
-        <ul>
-          <li>Conference review: ICLR, NeurIPS, ICML.</li>
-        </ul>
-      </div>
-    </section>
-  </div>
-
-  <script>
-    // Theme toggle & persistence
-    const btn = document.getElementById('toggleTheme');
-    btn?.addEventListener('click', ()=>{
-      const html = document.documentElement;
-      const light = html.getAttribute('data-theme') === 'light';
-      html.setAttribute('data-theme', light ? 'dark' : 'light');
-      localStorage.setItem('ks-theme', light ? 'dark' : 'light');
-    });
-    const saved = localStorage.getItem('ks-theme');
-    if(saved){ document.documentElement.setAttribute('data-theme', saved); }
-  </script>
-</body>
-</html>
+<h2 id="service">Service</h2>
+<ul>
+  <li>Conference review: ICLR, NeurIPS, ICML.</li>
+</ul>
